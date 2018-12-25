@@ -1,6 +1,7 @@
 var express = require("express"),
 app = express(),
 bodyParser = require("body-parser"),
+methodOverride = require("method-override"),
 mongoose = require("mongoose");
 
 
@@ -9,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/blog_app', { useNewUrlParser: true }
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 //Mongoose/model config
 var blogSchema = new mongoose.Schema({
@@ -72,6 +74,44 @@ app.get("/blogs/:id", function(req, res){
   })
 });
 
+//EDIT Route
+app.get("/blogs/:id/edit", function(req, res){
+  Blog.findById(req.params.id, function(err, foundBlog){
+    if(err){
+      res.redirect("/blogs");
+    } else {
+      res.render("edit", {blog:foundBlog});
+    }
+  });
+
+});
+
+//UPDATE Route
+app.put("/blogs/:id", function(req, res){
+  // Blog.findByIdAndUpdate(id, newData, callback)
+  Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+    if(err){
+      res.redirect("/blogs");
+    }else {
+      res.redirect("/blogs/" + req.params.id);
+    }
+  });
+});
+
+
+//DELETE Route
+app.delete("/blogs/:id", function(req, res){
+  //Destroy blogs/
+  Blog.findByIdAndRemove(req.params.id, function(err){
+    if(err){
+      res.redirect("/blogs");
+    } else {
+      //redirect
+      res.redirect("/blogs");
+    }
+  });
+
+});
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

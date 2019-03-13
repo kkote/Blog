@@ -8,11 +8,11 @@ Blog created from The Web Developer Bootcamp by Colt Steele on Udemy.
 ## Built With
 
 * [Udemy](https://www.udemy.com/the-web-developer-bootcamp/) 
-* [JavaScript]
+* JavaScript
 * [Node.js](https://nodejs.org/en/) 
 * [Express](https://expressjs.com/) 
 * [MongoDB](https://www.mongodb.com/) 
-* [Mongoose](https://mongoosejs.com/) - Layout
+* [Mongoose](https://mongoosejs.com/) 
 
 
 ## Author

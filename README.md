@@ -1,17 +1,13 @@
 # Blog
-Blog made with Express/Node/MongoDB
+> Blog made with Express/Node/MongoDB
 
-
-# Library App
-> Search and add books to make a digital library of books you own.
-
-
-Uses Google Books API to search and select to add book to the bookshelf. Hover over bookshelf image to get more info, or click x to remove.
+Blog created from The Web Developer Bootcamp by Colt Steele on Udemy.
 
 
 
 ## Built With
 
+* [Udemy](https://www.udemy.com/the-web-developer-bootcamp/) 
 * [JavaScript]
 * [Node.js](https://nodejs.org/en/) 
 * [Express](https://expressjs.com/) 
